@@ -17,6 +17,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите слово");
         String word = scanner.nextLine();
+        /*String[] first = dict.get(word);
+        for (String s : first) {
+            System.out.println(s);
+
+        }
+
 
         for (Map.Entry<String, String[]> rd : r) {
             for (String st : rd.getValue()) {
@@ -27,7 +33,7 @@ public class Main {
                     }
                 }
             }
-        }
+        }*/
         for (Map.Entry<String, String[]> rd : r) {
             if (word.equals(rd.getKey())) {
                 for (String s : rd.getValue()) {
@@ -53,6 +59,12 @@ public class Main {
                     }
                 }
                 dictionaryMap.put(synonym,values);
+
+                if (word.equals(synonym)){
+                for (String s: values){
+                        System.out.println(s);
+                    }
+                }
             }
 
         }
