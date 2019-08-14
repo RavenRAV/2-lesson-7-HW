@@ -1,5 +1,6 @@
 package com.company;
 
+import java.security.Key;
 import java.util.*;
 
 public class Main {
@@ -28,11 +29,32 @@ public class Main {
             }
         }
         for (Map.Entry<String, String[]> rd : r) {
-                if (word.equals(rd.getKey())) {
-                    for (String s : rd.getValue()) {
-                        System.out.println(s);
+            if (word.equals(rd.getKey())) {
+                for (String s : rd.getValue()) {
+                    System.out.println(s);
                 }
             }
+        }
+
+        Map<String, String[]> dictionaryMap = new HashMap<>();
+
+        for (Map.Entry<String, String[]> retournKeyValue : r) {
+            String key = retournKeyValue.getKey();
+            String[] value = retournKeyValue.getValue();
+            for (int i = 0; i < value.length; i++) {
+                String synonym = value[i];
+                String[] values = new String[value.length];
+                for (int a = 0; a < values.length; a++){
+                    String value2 = value[a];
+                    if(value2.equals(synonym)){
+                        values[a] = key;
+                    }else{
+                        values[a]=value2;
+                    }
+                }
+                dictionaryMap.put(synonym,values);
+            }
+
         }
     }
 }
